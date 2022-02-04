@@ -54,4 +54,5 @@ Route::group(['prefix' => 'carts'], function () {
   Route::get('buyer/{buyer_id}' , [CartController::class, 'getCartsByBuyer']);
   Route::post('/', [CartController::class, 'createCart']);
   Route::delete('{id}', [CartController::class, 'deleteCart']);
+  Route::post('/sum/{buyer_id}', [CartController::class, 'sumOfCarts']);
 });
