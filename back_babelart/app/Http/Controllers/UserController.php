@@ -49,11 +49,7 @@ class UserController extends BaseController
             return $this->sendError($message, 400);
         }
   */
-        $email_exists = User::where('id', '!=', $id)->where('email', $data['email'])->first();
-        if (isset($email_exists)) {
-            $message = 'The Email already exists';
-            return $this->sendError($message, 400);
-        }
+
 
         $validator = Validator::make($data, [
 
@@ -75,6 +71,11 @@ class UserController extends BaseController
         }
 
         if (isset($data['email'])) {
+            $email_exists = User::where('id', '!=', $id)->where('email', $data['email'])->first();
+            if (isset($email_exists)) {
+                $message = 'The Email already exists';
+                return $this->sendError($message, 400);
+            }
             $user->email = $data['email'];
         }
 
