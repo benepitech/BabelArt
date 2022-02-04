@@ -1,0 +1,39 @@
+
+  
+    <form
+      *ngIf="!isSuccessful"
+      name="form"
+      (ngSubmit)="f.form.valid && onSubmit()"
+      #f="ngForm"
+      novalidate
+    >
+      <div class="form-group">
+        <label for="role_id">Role</label>
+        <input
+          class="form-wrapper"
+          type="text"
+          class="form-control"
+          name="role_id"
+          [(ngModel)]="form.role_id"
+          required
+          maxlength="1"
+          #role_id="ngModel"
+        />
+        <div class="alert-danger" *ngIf="role_id.errors && f.submitted">
+          <div *ngIf="role_id.errors['required']">Username is required</div>
+          <div *ngIf="role_id.errors['maxlength']">
+            Role id must be a number beetwen 0-9
+          </div>
+        </div>
+      </div>
+      <!-- <app-form-user></app-form-user> -->
+      <div class="form-group">
+        <button class="btn btn-primary btn-block">Sign Up</button>
+      </div>
+      <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+        Signup failed!<br />{{ errorMessage }}
+      </div>
+
+    </form>
+ 
+

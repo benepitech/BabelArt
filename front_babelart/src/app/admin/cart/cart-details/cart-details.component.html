@@ -1,0 +1,100 @@
+<div *ngIf="viewMode; else editable">
+    <div *ngIf="currentCart.id">
+      <h4>Cart</h4>
+      <div>
+        <label><strong>Id:</strong></label>
+        {{ currentCart.id }}
+      </div>
+      <div>
+        <label><strong>Buyer:</strong></label>
+        {{ currentCart.buyer_id }}
+      </div>
+      <div>
+        <label><strong>Product:</strong></label>
+        {{ currentCart.product_id }}
+      </div>
+      <div>
+        <label><strong>Seller:</strong></label>
+        {{ currentCart.seller_id }}
+      </div>
+      <div>
+        <label><strong>Amount:</strong></label>
+        {{ currentCart.amount }}
+      </div>
+
+      <a
+        class="badge badge-warning"
+        routerLink="/admin/carts/{{ currentCart.id }}"
+      >
+        Edit
+      </a>
+    </div>
+  
+    <div *ngIf="!currentCart">
+      <br />
+      <p>Please click on a Cart...</p>
+    </div>
+  </div>
+  
+  <ng-template #editable>
+    <div *ngIf="currentCart.id" class="edit-form">
+      <h4>Cart</h4>
+      <form>
+
+        <div class="form-group">
+          <label for="buyer_id">Buyer</label>
+          <input
+            type="text"
+            class="form-control"
+            id="buyer_id"
+            [(ngModel)]="currentCart.buyer_id"
+            name="buyer_id"
+          />
+        </div>
+        <div class="form-group">
+          <label for="product_id">Product</label>
+          <input
+            type="text"
+            class="form-control"
+            id="product_id"
+            [(ngModel)]="currentCart.product_id"
+            name="product_id"
+          />
+        </div>
+        <div class="form-group">
+          <label for="seller_id">Seller</label>
+          <input
+            type="text"
+            class="form-control"
+            id="seller_id"
+            [(ngModel)]="currentCart.seller_id"
+            name="seller_id"
+          />
+        </div>
+        <div class="form-group">
+          <label for="amount">Amount €</label>
+          <input
+            type="text"
+            class="form-control"
+            id="amount"
+            [(ngModel)]="currentCart.amount"
+            name="amount"
+          />
+        </div>
+  
+
+      </form>
+  
+  
+      <button class="badge badge-danger mr-2" (click)="deleteCart()">
+        Delete
+      </button>
+  
+      <p>{{ message }}</p>
+    </div>
+  
+    <div *ngIf="!currentCart.id">
+      <br />
+      <p>Cannot access this Cart...</p>
+    </div>
+  </ng-template>

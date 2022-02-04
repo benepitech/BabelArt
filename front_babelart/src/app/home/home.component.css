@@ -1,0 +1,12 @@
+.jumbotron{
+    display: flex;
+    justify-content: center;
+}
+.container img {
+    width: calc(100% + 40px);
+    margin-left: calc(-20px);
+    margin-right: calc(-20px);
+}
+.container{
+    max-width: 100%;
+}

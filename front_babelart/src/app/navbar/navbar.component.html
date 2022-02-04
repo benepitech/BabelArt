@@ -1,0 +1,82 @@
+<div id="app">
+  <nav class="navbar navbar-expand navbar-white shadow-sm">
+    <!-- Logo -->
+
+    <a class="navbar-brand" href="/home" routerLink="home">
+      <img
+        src="assets/screen1.png"
+        alt=""
+        class="nav-link"
+        href="/home"
+        routerLink="home"
+      />
+    </a>
+
+    <div class="font" href="/home" routerLink="home">
+      Babel'art
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Road+Rage&family=Yellowtail&display=swap"
+        rel="stylesheet"
+      />
+    </div>
+
+    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16">
+          <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/>
+        </svg> -->
+
+    <!-- <ul class="navbar-nav mr-auto" routerLinkActive="active"> -->
+
+    <!-- <li class="nav-item" *ngIf="showAdminBoard">
+        <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
+      </li>
+
+      <li class="nav-item">
+        <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">User</a>
+      </li>
+    </ul> -->
+
+    <div class="nav navbar-nav mx-auto">
+      <form class="form-inline my-2 my-lg-0">
+        <input
+          class="form-control mr-sm-2"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+        <button type="submit" class="btn btn-outline-secondary">Search</button>
+      </form>
+    </div>
+
+    <ul class="navbar-nav ml-auto">
+      <button
+        href="/register"
+        routerLink="register"
+        type="button"
+        class="btn btn-primary"
+      >
+        Sign up
+      </button>
+      <li class="nav-item">
+        <a href="/login" class="nav-link" routerLink="login">Login</a>
+      </li>
+    </ul>
+
+    <!-- <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+      <li class="nav-item">
+        <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
+      </li> -->
+
+    <!-- <li class="nav-item">
+        <a href class="nav-link" (click)="logout()">LogOut</a>
+      </li>
+    </ul>
+  </nav> -->
+
+    <!-- <div class="container">
+    <router-outlet></router-outlet>
+  </div> -->
+  </nav>
+</div>

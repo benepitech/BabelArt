@@ -1,0 +1,22 @@
+
+
+
+
+
+<div class= "container">
+    <div>
+    <img src="http://localhost:8000/image/{{product.image}}" alt=image of product>
+    </div>
+    <div class= "index">
+        <h1>{{product.name | uppercase}} </h1>
+        <h3>need category name</h3>
+   
+        <p>{{product.description}}</p>
+        <p>{{product.price}}€</p>
+        <p>Need vendor name</p>
+        <button className="addCart" (click)=addToCart()>
+            Ajouter au panier
+        </button>  
+    </div>
+ 
+</div>

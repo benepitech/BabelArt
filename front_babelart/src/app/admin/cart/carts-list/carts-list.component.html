@@ -1,0 +1,48 @@
+<div class="list row">
+    <div class="col-md-8">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search by name"
+          [(ngModel)]="id"
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            (click)="searchId()"
+          >
+            Search by ID
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h4>Carts List</h4>
+      <a
+      class="badge badge-success"
+      routerLink="/admin/addcart"
+    >
+      Add a cart
+    </a>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let cart of carts; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setActiveCart(cart, i)"
+        >
+          {{ cart.id }}
+        </li>
+      </ul>
+  
+
+    </div>
+    <div class="col-md-6">
+      <app-cart-details
+        [viewMode]="true"
+        [currentCart]="currentCart"
+      ></app-cart-details>
+    </div>
+  </div>

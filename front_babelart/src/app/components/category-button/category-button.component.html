@@ -1,0 +1,7 @@
+<div class= "container"
+        [routerLink]="['/product_result']" 
+        [queryParams]="{category: category.id}">   
+    <img class = "image" src="http://localhost:8000/image/{{category.image}}" alt="category">
+    <h5 class= "text">{{category.name}}</h5>
+</div>
+
