@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../_services/user.service';
-import { User } from 'src/app/types/user.model';
-import { findIndex } from 'rxjs';
-import { UsersListComponent } from '../user/users-list/users-list.component';
+import { UserDataService } from '../../_services/user.service';
+
 
 @Component({
   selector: 'app-board-admin',
@@ -13,30 +11,11 @@ export class BoardAdminComponent implements OnInit {
   content?: string;
   users: any = [];
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserDataService) {}
 
   ngOnInit(): void {
-    this.userService.getAdminBoard().subscribe({
-      next: (data) => {
-        this.content = data;
-      },
-      error: (err) => {
-        this.content = JSON.parse(err.error).message;
-      },
-    });
+  
 
-    this.userService.getUsers().subscribe({
-      next: (data) => {
-        console.log('dataUser', data);
-        this.users = data.data.users;
-        console.log('datasUsers', this.users);
-      },
-      error: (e) => console.error(e),
-    });
-  }
-  removeUser(id: number): void {
-    this.userService.deleteUser(id).subscribe(() => {
-      console.log('user deleted sucessfully!');
-    });
-  }
+
+}
 }

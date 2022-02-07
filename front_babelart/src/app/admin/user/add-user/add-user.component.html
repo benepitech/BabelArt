@@ -1,39 +1,88 @@
+<div>
+    <div class="submit-form">
+      <div *ngIf="!submitted">
+        <div class="form-group">
+          <label for="username">user</label>
+          <input
+            type="text"
+            class="form-control"
+            id="username"
+            required
+            [(ngModel)]="user.username"
+            name="username"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="email">email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            required
+            [(ngModel)]="user.email"
+            name="email"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="address">address</label>
+          <input
+            type="text"
+            class="form-control"
+            id="address"
+            required
+            [(ngModel)]="user.address"
+            name="address"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="phone">phone</label>
+          <input
+            type="text"
+            class="form-control"
+            id="phone"
+            required
+            [(ngModel)]="user.phone"
+            name="phone"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="password">password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            required
+            [(ngModel)]="user.password"
+            name="password"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="password_confirmation">password_confirmation</label>
+          <input
+            type="password"
+            minlength="6"
+            class="form-control"
+            id="password_confirmation"
+            required
+            [(ngModel)]="user.password_confirmation"
+            name="password_confirmation"
+          />
+        </div>
+
 
   
-    <form
-      *ngIf="!isSuccessful"
-      name="form"
-      (ngSubmit)="f.form.valid && onSubmit()"
-      #f="ngForm"
-      novalidate
-    >
-      <div class="form-group">
-        <label for="role_id">Role</label>
-        <input
-          class="form-wrapper"
-          type="text"
-          class="form-control"
-          name="role_id"
-          [(ngModel)]="form.role_id"
-          required
-          maxlength="1"
-          #role_id="ngModel"
-        />
-        <div class="alert-danger" *ngIf="role_id.errors && f.submitted">
-          <div *ngIf="role_id.errors['required']">Username is required</div>
-          <div *ngIf="role_id.errors['maxlength']">
-            Role id must be a number beetwen 0-9
-          </div>
-        </div>
+  
+        <button (click)="saveUser()" class="btn btn-success">Submit</button>
       </div>
-      <!-- <app-form-user></app-form-user> -->
-      <div class="form-group">
-        <button class="btn btn-primary btn-block">Sign Up</button>
+  
+      <div *ngIf="submitted">
+        <h4>User was submitted successfully!</h4>
+        <button class="btn btn-success" (click)="newUser()">Add</button>
       </div>
-      <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
-        Signup failed!<br />{{ errorMessage }}
-      </div>
-
-    </form>
- 
-
+    </div>
+  </div>

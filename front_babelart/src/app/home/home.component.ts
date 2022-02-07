@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../_services/user.service';
+import { UserDataService } from '../_services/user.service';
 import CategoryDataService from '../_services/category.service';
 import ICategoryData from '../types/category.type';
 
@@ -12,17 +12,10 @@ export class HomeComponent implements OnInit {
   content?: string;
   categories?: ICategoryData[];
 
-  constructor(private userService: UserService, private categoryService: CategoryDataService ) { }
+  constructor(private userService: UserDataService, private categoryService: CategoryDataService ) { }
 
   ngOnInit(): void {
-    this.userService.getPublicContent().subscribe({
-      next: data => {
-        this.content = data;
-      },
-      error: err => {
-        this.content = JSON.parse(err.error).message;
-      }
-    });
+
     this.retrieveCategories();
   }
   

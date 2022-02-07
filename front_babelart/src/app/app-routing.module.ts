@@ -33,11 +33,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'user', component: BoardUserComponent },
   { path: 'admin', component: BoardAdminComponent },
-  // { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'product_page/:id', component: ProductPageComponent },
-  { path: 'admin/users_list', component: UsersListComponent },
-  { path: 'admin/add_user', component: AddUserComponent },
-  { path: 'admin/user_detail', component: UserDetailsComponent },
   { path: 'product_page/:id', component: ProductPageComponent },
   { path: 'admin/products', component: ProductsListComponent },
   { path: 'admin/products/:id', component: ProductDetailsComponent },
@@ -50,6 +46,9 @@ const routes: Routes = [
   { path: 'admin/addcategory', component: AddCategoryComponent },
   { path: 'product_result', component: ProductsResultComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'admin/users', component: UsersListComponent },
+  { path: 'admin/users/:id', component: UserDetailsComponent },
+  { path: 'admin/adduser', component: AddUserComponent },
 ];
 
 @NgModule({

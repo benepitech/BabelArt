@@ -31,6 +31,10 @@ export default class CartDataService {
     return this.http.post<ICartData>(API_URL + "/carts", data,httpOptions);
   }
 
+  sumOfCart(buyer_id: any){
+    return this.http.post<any>(API_URL + `/carts/sum/${buyer_id}`,httpOptions);
+  }
+
   delete(id: number ) {
     return this.http.delete<any>(API_URL + `/carts/${id}`,httpOptions);
   }

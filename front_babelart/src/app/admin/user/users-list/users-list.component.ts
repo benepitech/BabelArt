@@ -1,33 +1,59 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/_services/user.service';
-import { User } from 'src/app/types/user.model';
-import { findIndex } from 'rxjs';
+import { UserDataService } from '../../../_services/user.service';
+import  IUserData  from 'src/app/types/user.type';
+
 
 @Component({
   selector: 'app-users-list',
   templateUrl: './users-list.component.html',
-  styleUrls: ['./users-list.component.css'],
+  styleUrls: ['./users-list.component.css']
 })
 export class UsersListComponent implements OnInit {
-  content?: string;
-  users: any = [];
 
-  constructor(private userService: UserService) {}
+  users?: any;
+  currentUser: IUserData = {
+    username: '',
+    email: '',
+    address: '',
+    phone: '',
+    password: '',
+    password_confirmation: '',
+  };
+  currentIndex = -1;
+  id = 0;
+  name: any;
+
+  constructor(private userService: UserDataService) { }
 
   ngOnInit(): void {
+    this.retrieveUsers();
+  }
 
-    this.userService.getUsers().subscribe({
-      next: (data) => {
-        console.log('dataUser', data);
-        this.users = data.data.users;
-        console.log('datasUsers', this.users);
-      },
-      error: (e) => console.error(e),
-    });
+
+
+  async retrieveUsers(): Promise<any> {
+    var result = await this.userService.getAll();
+ 
+   
+    this.users= result.data.users;
+    console.log(this.users);
   }
-  removeUser(id: number): void {
-    this.userService.deleteUser(id).subscribe(() => {
-      console.log('user deleted sucessfully!');
-    });
+
+
+  setActiveUser(user: IUserData, index: number): void {
+    this.currentUser = user;
+    this.currentIndex = index;
   }
+
+
+
+  async searchName(): Promise<any> {
+    this.currentUser = {};
+    this.currentIndex = -1;
+  
+    var result = await this.userService.findByName(this.name);
+    this.users= result.data.users
+  }
+
 }
+

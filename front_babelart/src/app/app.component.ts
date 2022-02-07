@@ -16,25 +16,6 @@ export class AppComponent {
   constructor(private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {
-    this.isLoggedIn = !!this.tokenStorageService.getToken();
-
-    if (this.isLoggedIn) {
-      const user = this.tokenStorageService.getUser();
-      this.role_id = user.role_id;
-      console.log("thisRole", this.role_id);
-
-      if(this.role_id == 1){
-        this.showAdminBoard
-      }
-
-      
-
-      this.username = user.username;
-    }
-  }
-
-  logout(): void {
-    this.tokenStorageService.signOut();
-    window.location.reload();
+   
   }
 }

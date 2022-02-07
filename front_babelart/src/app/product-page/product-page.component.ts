@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../_services/user.service';
+import { UserDataService } from '../_services/user.service';
 import ProductDataService from '../_services/product.service';
 import {ActivatedRoute} from '@angular/router';
 import CartDataService from '../_services/cart.service';
@@ -20,17 +20,10 @@ export class ProductPageComponent implements OnInit {
   product: IProductData = {} 
 
 
-  constructor(private tokenService: TokenStorageService ,private userService: UserService, private route: ActivatedRoute, private productService: ProductDataService, private cartDataService: CartDataService) { }
+  constructor(private tokenService: TokenStorageService ,private userService: UserDataService, private route: ActivatedRoute, private productService: ProductDataService, private cartDataService: CartDataService) { }
 
   ngOnInit(): void {
-    this.userService.getPublicContent().subscribe({
-      next: data => {
-        this.content = data;
-      },
-      error: err => {
-        this.content = JSON.parse(err.error).message;
-      }
-    })
+  
 
      this.getProduct(this.route.snapshot.params["id"]);
     this.getUserinfo();
@@ -47,14 +40,13 @@ export class ProductPageComponent implements OnInit {
 
   async getUserinfo(): Promise<any>{
     let result = await this.tokenService.getUser()    
-    this.user = result;
-    console.log(this.user.user_id);
+    this.user = result.user;
   }
         
   
  
    addToCart(){
-    let data = { buyer_id : this.user.user_id, product_id : this.product.id, seller_id: this.product.seller_id, amount: this.product.price}
+    let data = { buyer_id : this.user.id, product_id : this.product.id, seller_id: this.product.seller_id, amount: this.product.price}
     this.cartDataService.create(data).subscribe({
       next: (data: any) => {
         console.log(data.status);

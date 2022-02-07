@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 // import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { User } from '../types/user.model';
+import  IUserData  from '../types/user.type';
 
 const API_URL = 'http://localhost:8000/api/';
 const httpOptions = {
@@ -12,44 +12,36 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root',
 })
-export class UserService {
+export class UserDataService {
   constructor(private http: HttpClient) {}
 
-  getPublicContent(): Observable<any> {
-    return this.http.get(API_URL + 'all', { responseType: 'text' });
+  getAll() {
+    return this.http.get<Promise<any>>(API_URL + 'users', httpOptions).toPromise();;
+     
   }
 
-  getUserBoard(): Observable<any> {
-    return this.http.get(API_URL + 'user', { responseType: 'text' });
+  getUser(id: string){
+    return this.http.get<Promise<any>>(API_URL + `users/${id}`, httpOptions).toPromise();
   }
 
-  getAdminBoard(): Observable<any> {
-    return this.http.get(API_URL + 'admin', { responseType: 'text' });
-  }
 
-  getUsers(): Observable<any> {
-    let data = this.http.get(API_URL + 'users', httpOptions);
-    return data;
-  }
-
-  getUser(id: number): Observable<any> {
-    let data = this.http.get(API_URL + `/users/${id}`, httpOptions);
-    return data;
-  }
 
   deleteUser(id: number) {
-    return this.http.delete<void>(API_URL + `/users/${id}`, httpOptions);
+    return this.http.delete<any>(API_URL + `users/${id}`, httpOptions);
   }
 
-  update(id: number, user: User): Observable<any> {
-    return this.http.put(
-      API_URL + `/users/${id}`,
+  
+
+  update(id: number, user: IUserData): Observable<any> {
+    return this.http.patch(
+      API_URL + `users/${id}`,
       JSON.stringify(user),
       httpOptions
     );
   }
 
-  create(user: User): Observable<any> {
-    return this.http.post<User>(API_URL + 'register', httpOptions);
+
+  findByName(username:string) {
+    return this.http.get<Promise<any>>(API_URL + `/users?username=${username}`,httpOptions).toPromise();
   }
 }

@@ -1,1 +1,106 @@
-<p>user-details works!</p>
+<div *ngIf="viewMode; else editable">
+    <div *ngIf="currentUser.id">
+      <h4>User</h4>
+      <div>
+        <label><strong>Id:</strong></label>
+        {{ currentUser.id }}
+      </div>
+      <div>
+        <label><strong>username:</strong></label>
+        {{ currentUser.username }}
+      </div>
+      <div>
+        <label><strong>email:</strong></label>
+        {{ currentUser.email }}
+      </div>
+      <div>
+        <label><strong>phone:</strong></label>
+        {{ currentUser.phone }}
+      </div>
+      <div>
+        <label><strong>address:</strong></label>
+        {{ currentUser.address }}
+      </div>
+
+      <a
+        class="badge badge-warning"
+        routerLink="/admin/users/{{ currentUser.id }}"
+      >
+        Edit
+      </a>
+    </div>
+  
+    <div *ngIf="!currentUser">
+      <br />
+      <p>Please click on a User...</p>
+    </div>
+  </div>
+  
+  <ng-template #editable>
+    <div *ngIf="currentUser.id" class="edit-form">
+      <h4>User</h4>
+      <form>
+
+        <div class="form-group">
+          <label for="username">username</label>
+          <input
+            type="text"
+            class="form-control"
+            id="username"
+            [(ngModel)]="currentUser.username"
+            name="username"
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            [(ngModel)]="currentUser.email"
+            name="email"
+          />
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input
+            type="text"
+            class="form-control"
+            id="phone"
+            [(ngModel)]="currentUser.phone"
+            name="phone"
+          />
+        </div>
+        <div class="form-group">
+          <label for="address">address</label>
+          <input
+            type="text"
+            class="form-control"
+            id="address"
+            [(ngModel)]="currentUser.address"
+            name="address"
+          />
+        </div>
+  
+
+      </form>
+  
+  
+      <button class="badge badge-danger mr-2" (click)="deleteUser()">
+        Delete
+      </button>
+      <button
+      type="submit"
+      class="badge badge-success mb-2"
+      (click)="updateProduct()"
+    >
+      Update
+    </button>
+      <p>{{ message }}</p>
+    </div>
+  
+    <div *ngIf="!currentUser.id">
+      <br />
+      <p>Cannot access this User...</p>
+    </div>
+  </ng-template>

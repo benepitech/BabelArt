@@ -16,7 +16,8 @@ export class LoginComponent implements OnInit {
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
-  roles: string[] = [];
+  roles: any = {} ;
+  user: any;
 
   constructor(private authService: AuthService, private tokenStorage: TokenStorageService) { }
 
@@ -24,9 +25,8 @@ export class LoginComponent implements OnInit {
     if (this.tokenStorage.getToken()) {
       console.log('loggin true')
       this.isLoggedIn = true;
-      this.roles = this.tokenStorage.getUser().role_id;
-      console.log("this.roles", this.roles)
     }
+    this.getUserinfo();
   }
 
   onSubmit(): void {
@@ -34,16 +34,9 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(email, password).subscribe({
       next: data => {
-        console.log("thisData", data);
         this.tokenStorage.saveToken(data.token);
-        this.tokenStorage.saveUser(data);
-        console.log("dataUserLogin", data)
-        // this.tokenStorage.saveUser(data.role_id);
-
         this.isLoginFailed = false;
         this.isLoggedIn = true;
-        this.roles = this.tokenStorage.getUser().role_id;
-        console.log("thisRoleLoginC", this.roles)
         this.reloadPage();
       },
       error: err => {
@@ -51,6 +44,15 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = true;
       }
     });
+    
+  }
+
+  async getUserinfo(): Promise<any>{
+    let result = await this.tokenStorage.getUser()    
+    this.user = result.user;
+    this.roles = this.user.role_id;
+    console.log(this.roles, this.user);
+    
   }
 
   reloadPage(): void {

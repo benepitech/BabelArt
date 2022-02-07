@@ -1,55 +1,58 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService} from '../../../_services/user.service';
-import {} from 'rxjs';
-
+import  IUserData  from 'src/app/types/user.type';
+import  {UserDataService}  from '../../../_services/user.service';
+import { AuthService } from 'src/app/_services/auth.service';
 @Component({
   selector: 'app-add-user',
   templateUrl: './add-user.component.html',
-  styleUrls: ['./add-user.component.css'],
+  styleUrls: ['./add-user.component.css']
 })
+
 export class AddUserComponent implements OnInit {
-  errors?: null;
-  form: any = {
-    role_id: null,
-    username: null,
-    email: null,
-    address: null,
-    phone: null,
-    password: null,
-    password_confirmation: null,
+
+  user: any = {
+    username: '',
+    email: '',
+    address: '',
+    phone: '',
+    password: '',
+    password_confirmation: '',
   };
-  isSuccessful = false;
-  isSignUpFailed = false;
-  errorMessage = '';
+  submitted = false;
 
-  constructor(private userService: UserService) {}
 
-  ngOnInit(): void {}
+  constructor(private userService: UserDataService, private authService: AuthService) { }
 
-  onSubmit(): void {
-    const { role_id, username, email, address, phone, password, password_confirmation } =
-      this.form;
-      console.log("this.form", this.form)
-    if (password !== password_confirmation) {
-      this.errorMessage = "Passwords do not match !";
-      console.log(this.errorMessage)
-      return
-    } else {
-      this.userService
-        .create(this.form)
-        .subscribe({
-          next: (data) => {
-            console.log(data);
-            this.isSuccessful = true;
-            this.isSignUpFailed = false;
-          },
-          error: (err) => {
-            console.log('register failed');
-            this.errorMessage = err.message;
-            console.log('this.errorMessage', this.errorMessage);
-            this.isSignUpFailed = true;
-          },
-        });
-    }
+  ngOnInit(): void {
   }
+
+  saveUser(): void {
+    const { username, email, address, phone, password, password_confirmation } = this.user;
+    this.authService.register(  username,
+                                email,
+                                address,
+                                phone,
+                                password,
+                                password_confirmation)
+      .subscribe({
+        next: (res) => {
+          console.log(res);
+          this.submitted = true;
+        },
+        error: (e) => console.error(e)
+      });
+  }
+
+  newUser(): void {
+    this.submitted = false;
+    this.user = {
+      username: '',
+      email: '',
+      address: '',
+      phone: '',
+      password: '',
+      password_confirmation: '',
+    };
+  }
+
 }
