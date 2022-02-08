@@ -31,6 +31,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { CategoryButtonComponent } from './components/category-button/category-button.component';
 import { ProductsResultComponent } from './products-result/products-result.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
+import { CartComponent } from './cart/cart.component';
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import { ProductCardComponent } from './components/product-card/product-card.com
     NavbarComponent,
     CategoryButtonComponent,
     ProductsResultComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    CartComponent
 
   ],
   imports: [

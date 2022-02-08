@@ -6,5 +6,5 @@ export default interface IProductData {
     image?: File | null,
     seller_id?: any,
     category_id?: number,
-    status?: boolean,
+    status?: any,
 }

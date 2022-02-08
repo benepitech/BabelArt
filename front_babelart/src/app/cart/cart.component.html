@@ -1,0 +1,17 @@
+
+        <h1>Le panier de {{user?.username}}</h1>
+            <ul class="list-group">
+                <li
+                class="list-group-item"
+                *ngFor="let product of products;"
+                >
+                    {{product.name}}
+                {{ product.price }}€
+                </li>
+        </ul>
+        <h3>{{sum}}€</h3>
+        <h2>Votre adresse</h2>
+        <span>{{user?.address}}</span> <br> <br> <br>
+        <h2>Votre numero de telephone</h2>
+        <span>{{user?.phone}}</span> <br> <br> <br>
+        <button (click)="purchase()">Purchase</button>

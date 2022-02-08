@@ -44,4 +44,9 @@ export class UserDataService {
   findByName(username:string) {
     return this.http.get<Promise<any>>(API_URL + `/users?username=${username}`,httpOptions).toPromise();
   }
+
+  addSale(seller_id:any){
+    return this.http.patch(API_URL + `users/sales/${seller_id}`,httpOptions);
+  } 
+  
 }

@@ -24,7 +24,7 @@ export default class CartDataService {
     return this.http.get<Promise<any>>(API_URL + `/carts/${id}`,httpOptions).toPromise();
   }
   getCartsByBuyer(buyer_id: any ) {
-    return this.http.get<Promise<any>>(API_URL + `/carts/${buyer_id}`,httpOptions).toPromise();
+    return this.http.get<Promise<any>>(API_URL + `/carts/buyer/${buyer_id}`,httpOptions).toPromise();
   }
 
   create(data:ICartData){
@@ -38,8 +38,6 @@ export default class CartDataService {
   delete(id: number ) {
     return this.http.delete<any>(API_URL + `/carts/${id}`,httpOptions);
   }
-
-  
 
   findById(id:any) {
     return this.http.get<Array<ICartData>>(API_URL + `/carts?id=${id}`,httpOptions);
