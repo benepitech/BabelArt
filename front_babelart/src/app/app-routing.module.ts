@@ -26,6 +26,7 @@ import { AddCategoryComponent } from './admin/category/add-category/add-category
 
 import { ProductsResultComponent } from './products-result/products-result.component';
 import { CartComponent } from './cart/cart.component';
+import { ProductFormComponent } from './product-form/product-form.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
@@ -49,7 +50,8 @@ const routes: Routes = [
   { path: 'admin/users', component: UsersListComponent },
   { path: 'admin/users/:id', component: UserDetailsComponent },
   { path: 'admin/adduser', component: AddUserComponent },
-  { path: 'cart', component: CartComponent }
+  { path: 'cart', component: CartComponent },
+  { path: 'user/product_form', component: ProductFormComponent }
 ];
 
 @NgModule({

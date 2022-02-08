@@ -31,6 +31,9 @@ export default class ProductDataService {
     return this.http.get<Promise<any>>(API_URL + `/products/category/${id}`,httpOptions).toPromise();
   }
 
+  getbySeller(id: string ) {
+    return this.http.get<Promise<any>>(API_URL + `/products/seller/${id}`,httpOptions).toPromise();
+  }
 
   create(data:IProductData){
     var formData: any = new FormData();

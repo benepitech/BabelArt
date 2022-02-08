@@ -1,5 +1,20 @@
 <div class="container">
     <header class="jumbotron">
-      <p>{{ content }}</p>
+
+      Name : {{user?.username}}
+      Phone : {{user?.phone}}
+      Address : {{user?.address}}
+      Email : {{user?.email}}
+      Products sold : {{user?.nb_sales}}
+
     </header>
+    <button [routerLink]="'product_form'">Sell my product</button>
+<h1>my products for sale</h1>
+    <div class= "products" *ngFor="let item of for_sale; let i = index">
+      <app-product-card [product]="item">></app-product-card>
+    </div>
+    <h1>my products sold</h1>
+    <div class= "products" *ngFor="let item of sold; let i = index">
+      <app-product-card [product]="item">></app-product-card>
+    </div>
   </div>

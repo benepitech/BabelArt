@@ -1,18 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import IProductData from '../../../types/product.type'
-import ICategoryData from 'src/app/types/category.type';
-import  ProductDataService  from '../../../_services/product.service';
-import CategoryDataService from 'src/app/_services/category.service';
-import { TokenStorageService } from 'src/app/_services/token-storage.service';
-
+import { TokenStorageService } from '../_services/token-storage.service';
+import ProductDataService from '../_services/product.service';
+import CategoryDataService from '../_services/category.service';
+import IProductData from '../types/product.type';
+import ICategoryData from '../types/category.type';
 
 @Component({
-  selector: 'app-add-product',
-  templateUrl: './add-product.component.html',
-  styleUrls: ['./add-product.component.css']
+  selector: 'app-product-form',
+  templateUrl: './product-form.component.html',
+  styleUrls: ['./product-form.component.css']
 })
-
-export class AddProductComponent implements OnInit {
+export class ProductFormComponent implements OnInit {
 
   product: IProductData = {
     name: '',
@@ -76,7 +74,7 @@ export class AddProductComponent implements OnInit {
   async getUserinfo(): Promise<any>{
     let result = await this.tokenService.getUser()    
     this.user = result.user;
-    console.log(this.user.id);
+    console.log(this.user.user_id);
   }
 
   newProduct(): void {

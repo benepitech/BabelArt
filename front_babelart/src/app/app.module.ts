@@ -32,6 +32,7 @@ import { CategoryButtonComponent } from './components/category-button/category-b
 import { ProductsResultComponent } from './products-result/products-result.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { CartComponent } from './cart/cart.component';
+import { ProductFormComponent } from './product-form/product-form.component';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import { CartComponent } from './cart/cart.component';
     CategoryButtonComponent,
     ProductsResultComponent,
     ProductCardComponent,
-    CartComponent
+    CartComponent,
+    ProductFormComponent
 
   ],
   imports: [
