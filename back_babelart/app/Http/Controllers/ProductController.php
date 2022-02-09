@@ -128,6 +128,9 @@ class ProductController extends BaseController
         if (isset($data['description'])) {
                 $product->description = $data['description'];}
 
+        if (isset($data['status'])) {
+                $product->status = $data['status'];}
+
         if (isset($data['image'])) {
             if ($image = $request->file('image')) {
                 var_dump($image);

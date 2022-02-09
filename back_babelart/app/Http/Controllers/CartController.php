@@ -109,15 +109,22 @@ class CartController extends BaseController
     } 
 
     public function sumOfCarts($buyer_id){
-        $carts = Cart::select('amount')->where('user_id', '=' , $buyer_id)->get();
-        if ($carts){ 
-            $sumOfCarts = array_sum($carts);
+        $sumOfCarts= array();
+        $carts = Cart::where('buyer_id', '=' , $buyer_id)->get();
+        if (isset($carts)){ 
+            foreach($carts as $cart){
+                array_push($sumOfCarts, $cart->amount );               
+            }
+            $sum = array_sum($sumOfCarts);
             $message = 'The total amount of the Cart is..';
-            return $this->sendResponse($sumOfCarts, $message, 201);
+            return $this->sendResponse(
+               $sum,$message, 201);
         }
         else{
             $message = 'We have encountered an error the calculation of the sum of the Cart';
             return $this->sendResponse(null , $message, 402);
         }
     }
+
+
 }

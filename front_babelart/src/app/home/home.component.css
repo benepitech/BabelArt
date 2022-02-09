@@ -1,12 +1,28 @@
-.jumbotron{
+.categories{
+   justify-content: space-around;
+   padding-top: 10px;
+    width: 100%;
+
     display: flex;
-    justify-content: center;
+flex-direction: row;
+    background-color: white;
 }
-.container img {
-    width: calc(100% + 40px);
-    margin-left: calc(-20px);
-    margin-right: calc(-20px);
+.container2{
+    width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
 }
+
 .container{
+    margin-top: 15px;
     max-width: 100%;
+
+}
+.container img{
+
+width: 100%;
+    border-radius: 0;
+}
+.image{
+    width: 100%;
 }

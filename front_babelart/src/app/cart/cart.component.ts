@@ -80,6 +80,7 @@ export class CartComponent implements OnInit {
         error: (e) => console.error(e)
       })
     })
+    window.location.replace('/')
   }
 
 

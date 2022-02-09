@@ -17,7 +17,7 @@ class Product extends Model
      * @var array
      */
     protected $attributes = [
-        'status' => 0,
+        'status' => 0, // a vendre , 1 = vendu
     ];
 
 
@@ -30,6 +30,7 @@ class Product extends Model
         'image',
         'seller_id',
         'category_id',
+        'status'
     ];
 
 

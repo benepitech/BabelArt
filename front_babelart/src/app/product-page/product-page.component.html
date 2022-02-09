@@ -8,15 +8,21 @@
     <img src="http://localhost:8000/image/{{product.image}}" alt=image of product>
     </div>
     <div class= "index">
-        <h1>{{product.name | uppercase}} </h1>
- 
-   
-        <p>{{product.description}}</p>
-        <p>{{product.price}}€</p>
-        <p>Need vendor name</p>
-        <button className="addCart" (click)=addToCart()>
-            Ajouter au panier
-        </button>  
+            <h1>{{product.name | uppercase}} </h1>
+    
+    
+            <p>{{product.description}}</p>  
+            <p>{{product.price}}€</p>
+        <div *ngIf="!isInCart; else added">
+            <button className="addCart" (click)=addToCart()>
+                Ajouter au panier
+            </button>  
+        </div>
+        <ng-template #added>
+            <button className="addCart" (click)=addToCart()>
+                Le produit est dans le panier
+            </button>  
+        </ng-template>
     </div>
  
 </div>

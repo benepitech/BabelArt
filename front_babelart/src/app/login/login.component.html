@@ -1,5 +1,8 @@
-<div class="col-md-12 mt-5 form-wrapper">
-    <div class="card card-container">
+
+<div class="global">
+  <div class="image"><img src="/assets/images/meuble5.png" alt=""></div>
+    <div class="container">
+
       <form
         *ngIf="!isLoggedIn"
         name="form"
@@ -7,15 +10,16 @@
         #f="ngForm"
         novalidate
       >
-        <div class="form-group">
-          <label for="email">Email</label>
+        <div class="group">
+     
           <input
             type="email"
-            class="form-control"
+            class="control"
             name="email"
             [(ngModel)]="form.email"
             required
             #email="ngModel"
+            placeholder="email"
           />
           <div
             class="alert alert-danger"
@@ -25,16 +29,17 @@
             Email is required!
           </div>
         </div>
-        <div class="form-group">
-          <label for="password">Password</label>
+        <div class="group">
+
           <input
             type="password"
-            class="form-control"
+            class="control"
             name="password"
             [(ngModel)]="form.password"
             required
             minlength="6"
             #password="ngModel"
+            placeholder="password"
           />
           <div
             class="alert alert-danger"
@@ -47,12 +52,12 @@
             </div>
           </div>
         </div>
-        <div class="form-group">
-          <button class="btn btn-primary btn-block">
+        <div class="group">
+          <button class="btn btn-secondary">
             Login
           </button>
         </div>
-        <div class="form-group">
+        <div class="group">
           <div
             class="alert alert-danger"
             role="alert"

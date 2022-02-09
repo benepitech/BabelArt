@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { UserDataService } from '../_services/user.service';
 import ProductDataService from '../_services/product.service';
 import {ActivatedRoute} from '@angular/router';
@@ -13,7 +13,7 @@ import IProductData from '../types/product.type';
 })
 export class ProductPageComponent implements OnInit { 
   errorMessage = '';
-  isInCart = false
+  @Input() isInCart = false
   content?: string;
   id?:string;
   user?: any;

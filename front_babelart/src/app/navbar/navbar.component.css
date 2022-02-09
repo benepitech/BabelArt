@@ -2,5 +2,14 @@
     font-family: 'Road Rage', cursive;
     font-family: 'Yellowtail', cursive;
     font-size: 260%;
-    
-    }
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.navbar-brand img{
+width: 50%;
+}
+
+.navbar{
+    background-color: white;
+}

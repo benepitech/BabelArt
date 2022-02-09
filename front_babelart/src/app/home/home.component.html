@@ -1,12 +1,16 @@
 <div class="container">
-  <img src="/assets/images/image 1.png" alt="bandeau">
-    <header class="jumbotron">
-      <h2>Les categories</h2>
-    <div class= "categories" *ngFor="let category of categories; let i = index">
+
+    <div class="container2">
+      <div class="image">
+        <img src="/assets/images/image 1.png" alt="bandeau">
+      </div>
+      <div class="categories">
+    <div  *ngFor="let category of categories; let i = index">
       <app-category-button [category]="category">></app-category-button>
     </div>
+  </div>
 
 
-    </header>
+  </div>
   </div>
 

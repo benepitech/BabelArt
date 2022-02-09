@@ -1,5 +1,72 @@
-.form-wrapper {
-    width: 20rem;
-    margin: 0 auto;
-    
+
+  .image img{
+  width: fill;
+
   }
+
+  .global {
+    background-color: white;
+    width: 40vw;
+    margin-top: 1%;
+    margin-left: auto;
+    margin-right: auto;
+
+    border-radius: 5px;
+  }
+
+  .login{
+    width: 100%;
+  text-align: center;
+  grid-column: span 12;
+  grid-row: span 1;
+  margin-top: 15px;
+
+  }
+  .login h1 {
+    font-weight: bold;
+  }
+
+.container{
+  width: 80%;
+
+  
+}
+  .group{
+ 
+    border-radius: 5px;
+      display: flex;
+      flex-direction: column;
+    
+      margin-bottom: 2%;
+      width: 95%;
+      margin-left: auto;
+      margin-right: auto;
+      
+    }
+    
+    
+    .control{
+      font-family: 'Roboto', sans-serif;
+      color: #333;
+      font-size: 1rem;
+      padding: 10px;
+      margin-top: 4px;
+      margin: 0 auto;
+      background-color: #dfe6e9;
+      border-radius: 0.2rem;
+      border: none;
+      margin-top: 3px;
+      width: 100%;
+      display: block;
+      border-bottom: 0.3rem solid transparent;
+      transition: all 0.3s;
+      margin-top: 15px;
+      
+    }
+    .btn{
+      width: 50%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 5px;
+    
+    }

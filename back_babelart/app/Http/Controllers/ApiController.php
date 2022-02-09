@@ -49,19 +49,18 @@ class ApiController extends Controller
     {
         $credentials = $request->only('email', 'password');
 
-        //valid credential
+    
         $validator = Validator::make($credentials, [
             'email' => 'required|email',
             'password' => 'required|string|min:6|max:50'
         ]);
 
-        //Send failed response if request is not valid
+       
         if ($validator->fails()) {
             return response()->json(['error' => $validator->messages()], 200);
         }
 
-        //Request is validated
-        //Crean token
+
         try {
             if (!$token = JWTAuth::attempt($credentials)) {
                 return response()->json([
@@ -81,21 +80,15 @@ class ApiController extends Controller
         return response()->json([
             'success' => true,
             'token' => $token,
-            'user_id' => JWTAuth::user()->id,
+          //  'user_id' => JWTAuth::user()->id,
         ]);
     }
 
+
+    
     public function logout(Request $request)
     {
-        //valid credential
-        $validator = Validator::make($request->only('token'), [
-            'token' => 'required'
-        ]);
 
-        //Send failed response if request is not valid
-        if ($validator->fails()) {
-            return response()->json(['error' => $validator->messages()], 200);
-        }
 
         //Request is validated, do logout        
         try {
@@ -115,10 +108,7 @@ class ApiController extends Controller
 
     public function get_user(Request $request)
     {
-        $this->validate($request, [
-            'token' => 'required'
-        ]);
-
+      
         $user = JWTAuth::authenticate($request->token);
 
         return response()->json(['user' => $user]);

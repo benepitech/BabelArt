@@ -22,6 +22,7 @@ class User extends Authenticatable implements JWTSubject
      */
     protected $attributes = [
         'role_id' => 1,
+        'nb_sales' =>0,
     ];
 
     /**

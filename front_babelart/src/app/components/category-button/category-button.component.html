@@ -1,7 +1,7 @@
-<div class= "container"
+<div class= " hover01 column container"
         [routerLink]="['/product_result']" 
         [queryParams]="{category: category.id}">   
-    <img class = "image" src="http://localhost:8000/image/{{category.image}}" alt="category">
+        <figure><img class = "image" src="http://localhost:8000/image/{{category.image}}" alt="category"></figure>
     <h5 class= "text">{{category.name}}</h5>
 </div>
 

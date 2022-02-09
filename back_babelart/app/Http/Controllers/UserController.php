@@ -115,6 +115,13 @@ class UserController extends BaseController
         }
         return $this->sendResponse($user, $message, 201);
     }
+
+    public function incrementNbSales($seller_id){
+        $user = User::find($seller_id)->increment('nb_sales', 1);
+
+    }
 }
+
+
 
 

@@ -1,7 +1,11 @@
 
 
-<div    [routerLink]="['/product_page/',product?.id]">
-    {{product?.name}} <br>
-    {{product?.description}} <br>
-    <img src="http://localhost:8000/image/{{product?.image}}" alt="product">
-</div>
+
+<div class="card" [routerLink]="['/product_page/',product?.id]" style="width: 18rem;">
+    <img class="card-img-top" src="http://localhost:8000/image/{{product?.image}}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{product?.name}}</h5>
+      <p class="card-text">{{product?.description}}</p>
+
+    </div>
+  </div>

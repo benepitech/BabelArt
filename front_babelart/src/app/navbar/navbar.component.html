@@ -1,5 +1,5 @@
 
-  <nav class="navbar navbar-expand navbar-white shadow-sm">
+  <nav class="navbar navbar-expand navbar-white shadow-sm" >
     <!-- Logo -->
 
     <a class="navbar-brand" href="/home" routerLink="home">
@@ -26,25 +26,14 @@
 
 
 
-    <div class="nav navbar-nav mx-auto">
-      <form class="form-inline my-2 my-lg-0">
-        <input
-          class="form-control mr-sm-2"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-        />
-        
-        <button type="submit" class="btn btn-outline-secondary">Search</button>
-      </form>
-    </div>
+
 
     <ul class="navbar-nav ml-auto"  *ngIf="!isLoggedIn">
       <button
         href="/register"
         routerLink="register"
         type="button"
-        class="btn btn-primary"
+        class="btn btn-secondary"
       >
         Sign up
       </button>
