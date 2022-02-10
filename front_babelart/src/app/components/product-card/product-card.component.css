@@ -1,8 +1,27 @@
-img {
-    width: 100px;
-}
+.container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+margin-bottom: 40px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 280px;
+    height: 400px;
+    background-color: #dfe6e9;
+    justify-content: center;
+  }
 
-.card{
-    max-width: 300px;
-    max-height: 300px;
-}
+  .image{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+
+  .input{
+      display: flex;
+      justify-content: space-evenly;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    grid-column: 1/ span 2;
+  background-color: white;
+    
+  }

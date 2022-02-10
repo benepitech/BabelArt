@@ -14,13 +14,15 @@
             <p>{{product.description}}</p>  
             <p>{{product.price}}€</p>
         <div *ngIf="!isInCart; else added">
-            <button className="addCart" (click)=addToCart()>
-                Ajouter au panier
+            <button class="btn" (click)=addToCart()>
+                <img src="/assets/images/icons8-add-to-basket-50.png" alt="panier">
+                
             </button>  
         </div>
         <ng-template #added>
-            <button className="addCart" (click)=addToCart()>
-                Le produit est dans le panier
+            <button class="btn" (click)=addToCart()>
+                <img src="/assets/images/icons8-add-to-basket-50-2.png" alt="panier">
+                <span>Added to Cart</span>
             </button>  
         </ng-template>
     </div>

@@ -1,61 +1,65 @@
-<div>
-    <div class="submit-form">
+<div >
+    <div class="container">
       <div *ngIf="!submitted">
-        <div class="form-group">
-          <label for="name">Name</label>
+        <div class="group">
+
           <input
             type="text"
-            class="form-control"
+            class="control name"
             id="name"
             required
             [(ngModel)]="product.name"
             name="name"
+            placeholder="name"
           />
         </div>
   
-        <div class="form-group">
-          <label for="price">Price</label>
+        <div class="group">
+
           <input
-            class="form-control"
+            class="control"
             id="price"
             required
             [(ngModel)]="product.price"
             name="price"
+            placeholder="price €"
           />
         </div>
   
-        <div class="form-group">
-          <label for="description">Description</label>
+        <div class="group">
+
           <input
-            class="form-control"
+            class="control"
             id="description"
             required
             [(ngModel)]="product.description"
             name="description"
+            placeholder="description"
           />
         </div>
   
-        <div class="form-group">
-          <label for="image">Image</label>
+        <div class="group">
+
           <input
-            class="form-control"
+            class="control"
             type="file"
             id="image"
             required
             name="image"
             (change)="onImageSelected($event)"
+            
           />
         </div>
   
-        <div class="form-group">
-          <mat-select [(ngModel)]="product.category_id" class="select" placeholder="category">
+        <div class="group">
+          <mat-select [(ngModel)]="product.category_id" class="control" placeholder="category">
             <mat-option  *ngFor="let category of categories" [value]="category.id">
               {{ category.name }}
             </mat-option>
           </mat-select>
         </div>
   
-        <button (click)="saveProduct()" class="btn btn-success">Submit</button>
+        <button (click)="saveProduct()" class="btn btn-secondary m-3">Post your product</button>
       </div>
   
       <div *ngIf="submitted">

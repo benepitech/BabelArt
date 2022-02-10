@@ -6,7 +6,7 @@
       <img
         src="assets/screen1.png"
         alt=""
-        class="nav-link"
+        class=""
         href="/home"
         routerLink="home"
       />
@@ -43,8 +43,12 @@
     </ul>
 
     <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+ 
       <li class="nav-item">
-        <a href="/panier" class="nav-link" routerLink="cart"> Mon Panier</a>
+        <a href="/product_form" class="nav-link" routerLink="user/product_form">Devenir Vendeur</a>
+      </li>
+      <li class="nav-item">
+        <a href="/panier" class="nav-link panier" routerLink="cart"> Mon Panier</a>
       </li>
       <li *ngIf="showAdminBoard" class="nav-item" >
         <a href="/admin" class="nav-link" routerLink="admin">Panel Admin</a>
@@ -54,7 +58,7 @@
 
     
           <li class="nav-item">
-            <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">{{username}}</a>
+            <a href="/user" class="nav-link panier" *ngIf="isLoggedIn" routerLink="user">{{username}}</a>
           </li>
         </ul>
     <li class="nav-item">

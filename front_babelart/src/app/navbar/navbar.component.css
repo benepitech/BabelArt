@@ -2,8 +2,7 @@
     font-family: 'Road Rage', cursive;
     font-family: 'Yellowtail', cursive;
     font-size: 260%;
-    margin-left: auto;
-    margin-right: auto;
+margin-right: 10px;
 }
 
 .navbar-brand img{
@@ -13,3 +12,20 @@ width: 50%;
 .navbar{
     background-color: white;
 }
+
+.nav-link{
+    color: black;
+    border-radius: 15px;
+    background-color: #dfe6e9;
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: #FAB917;
+}
+
+.panier{
+ background-color: #03ADA0;
+
+}
+.nav-link:hover {
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+  }

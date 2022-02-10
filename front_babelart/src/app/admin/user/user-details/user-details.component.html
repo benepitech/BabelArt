@@ -21,6 +21,10 @@
         <label><strong>address:</strong></label>
         {{ currentUser.address }}
       </div>
+      <div>
+        <label><strong>Role:</strong></label>
+        {{ currentUser.role_id }}
+      </div>
 
       <a
         class="badge badge-warning"
@@ -79,6 +83,17 @@
             id="address"
             [(ngModel)]="currentUser.address"
             name="address"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="role_id">role</label>
+          <input
+            type="text"
+            class="form-control"
+            id="role_id"
+            [(ngModel)]="currentUser.role_id"
+            name="role_id"
           />
         </div>
   

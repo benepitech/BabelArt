@@ -1,20 +1,75 @@
 <div class="container">
-    <header class="jumbotron">
+    <div class="top">
+      <div class="coord-grid" >
+        <div class="grid-header">
+          Mes coordonnées
+        </div>
 
-      Name : {{user?.username}}
-      Phone : {{user?.phone}}
-      Address : {{user?.address}}
-      Email : {{user?.email}}
-      Products sold : {{user?.nb_sales}}
+        <div class="grid-item">
+          Name 
+        </div>
+        <div class="grid-item">
+          {{user?.username}} 
+        </div>
+        <div class="grid-item">
+          <button type="button" class="btn btn-secondary">modify</button>
 
-    </header>
-    <button [routerLink]="'product_form'">Sell my product</button>
-<h1>my products for sale</h1>
-    <div class= "products" *ngFor="let item of for_sale; let i = index">
-      <app-product-card [product]="item">></app-product-card>
+        </div>
+        <button class="btn-secondary mt-3 btn big-button " [routerLink]="'product_form'">Sell my products</button>
+        <div class="grid-item">
+          Phone 
+        </div>
+        <div class="grid-item">
+          {{user?.phone}} 
+        </div>
+        <div class="grid-item">
+          <button type="button" class="btn btn-secondary">modify</button> 
+        </div>
+        <div class="grid-item">
+          Address 
+        </div>
+        <div class="grid-item">
+          {{user?.address}} 
+        </div>
+        <div class="grid-item">
+          <button type="button" class="btn btn-secondary">modify</button>
+        </div>
+        <div class="grid-item">
+          Email 
+        </div>
+        <div class="grid-item">
+          {{user?.email}}
+        </div>
+        <div class="grid-item">
+          <button type="button" class="btn btn-secondary">modify</button> 
+        </div>
+        <div class="grid-item">
+          Number of sales 
+        </div>
+        <div class="grid-item">
+          {{user?.nb_sales}}
+        </div>
+
+      </div>
+
+      <div class="button">
+
+      </div>
     </div>
-    <h1>my products sold</h1>
-    <div class= "products" *ngFor="let item of sold; let i = index">
-      <app-product-card [product]="item">></app-product-card>
-    </div>
+    <div class="total">
+      
+        <div class="liste">
+          <h1>my products for sale</h1>
+          <div class= "products" *ngFor="let item of for_sale; let i = index">
+            <app-product-card [product]="item">></app-product-card>
+          </div>
+        </div>
+      
+        <div class="liste">
+          <h1>my products sold</h1>
+          <div class= "products" *ngFor="let item of sold; let i = index">
+            <app-product-card [product]="item">></app-product-card>
+          </div>
+        </div>
+      </div>
   </div>

@@ -30,7 +30,7 @@ import { TokenStorageService } from '../_services/token-storage.service';
     this.user = result.user;
     console.log(this.user.username);
     this.username = this.user.username;
-    if(result.user.role_id == 1) this.showAdminBoard = true;
+    if(result.user.role_id == 4) this.showAdminBoard = true;
 
   }
   

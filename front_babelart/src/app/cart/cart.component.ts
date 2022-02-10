@@ -45,7 +45,7 @@ export class CartComponent implements OnInit {
           await this.cartService.sumOfCart(this.user.id)
           .subscribe({
             next: (res) => {
-              console.log(res.data);
+
     this.sum = res.data;
             },
             error: (e) => console.error(e)
@@ -53,34 +53,45 @@ export class CartComponent implements OnInit {
         }
   }
 
-  purchase(){
-    let data = {status : 1};
-    this.products.forEach((element:any) => {
-      this.productService.update(element.id, data).subscribe({
-        next: (data:any) => {
-          console.log(data);
-          
-        },
-        error: (e) => console.error(e)
-      }),
-      this.userService.addSale(element.seller_id).subscribe({
-        next: (data:any) => {
-          console.log(data);
-          
-        },
-        error: (e) => console.error(e)
-      })
-    });
-    this.carts.forEach((element:any) => {
-      this.cartService.delete(element.id).subscribe({
-        next: (data:any) => {
-          console.log(data);
-          
-        },
-        error: (e) => console.error(e)
-      })
-    })
+  redirect(){
     window.location.replace('/')
+  }
+  purchase(){
+    if (this.carts !== undefined){
+      let data = {status : 1};
+      this.products.forEach((element:any) => {
+        this.productService.update(element.id, data).subscribe({
+          next: (data:any) => {
+            console.log(data);
+            
+          },
+          error: (e) => console.error(e)
+        }),
+        this.userService.addSale(element.seller_id).subscribe({
+          next: (data:any) => {
+            console.log(data);
+            
+          },
+          error: (e) => console.error(e)
+        })
+      });
+      this.carts.forEach((element:any) => {
+        this.cartService.delete(element.id).subscribe({
+          next: (data:any) => {
+            console.log(data);
+            
+          },
+          error: (e) => console.error(e)
+        })
+      })
+      console.log(this.carts.length);
+      
+    
+      setTimeout(this.redirect, 1000);
+    }
+    else this.redirect();
+
+  
   }
 
 
